@@ -406,7 +406,22 @@ setTimeout(()=>{
 }
 
 setInterval(createHeart,700);
+function unlock(){
 
+  let password =
+    document.getElementById("passwordInput").value;
+
+  if(password === "Bestfriend"){
+
+    document.getElementById("lockScreen").style.display = "none";
+
+  }else{
+
+    document.getElementById("wrongPassword").innerHTML =
+      "❌ Wrong password";
+
+  }
+    }
 </script>
 
 </body>
