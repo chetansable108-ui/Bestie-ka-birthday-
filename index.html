@@ -318,33 +318,364 @@ padding:20px;
 
 <!-- PAGE 2 -->
 <section class="screen" id="page2">
-  <div class="card">
-    <div class="emoji">🌸</div>
-    <h2>For You, Shivani 💕</h2>
-    <p>
-      Some people come into our life and slowly become
-      a beautiful part of our memories.
+  <<!-- PAGE 2 -->
+
+<section class="screen" id="page2">
+
+  <div class="page2-card">
+
+    <div class="page2-stars">✦　✧　✦</div>
+
+    <div class="page2-emoji">👀❤️</div>
+
+    <h2 class="page2-title">If You’re Reading This…</h2>
+
+    <p class="page2-subtitle">
+      then you made it this far. ❤️
     </p>
-    <p>
-      You are one of those special people. 🫂💖
-    </p>
-    <button onclick="nextPage()">Continue ✨</button>
+
+    <div class="page2-message">
+
+      <p>
+        But I didn't make this page for just anyone.
+      </p>
+
+      <p>
+        I made it for <b>you, Shivani. 👑</b>
+      </p>
+
+      <p>
+        काही गोष्टी शब्दांत सांगणं कठीण असतं…
+        पण काही माणसं मात्र मनात कायम खास असतात. ❤️
+      </p>
+
+      <p>
+        आणि तू त्यापैकीच एक आहेस. 🫂
+      </p>
+
+    </div>
+
+    <div class="page2-more">
+      There’s one more thing… 👀
+    </div>
+
+    <button class="page2-btn" onclick="page2Continue()">
+      Open One More Thing 💖
+    </button>
+
+    <div id="page2-final" class="page2-final">
+
+      <div class="page2-heart">❤️</div>
+
+      <h3>One thing I want you to know…</h3>
+
+      <p>
+        No matter how much time passes,
+        some friendships always remain special.
+      </p>
+
+      <p>
+        <b>And you will always be my Best Friend. 🫂❤️</b>
+      </p>
+
+    </div>
+
   </div>
+
 </section>
 
-<!-- PAGE 3 -->
-<section class="screen" id="page3">
-  <div class="card">
-    <div class="emoji">📸</div>
-    <h2>Our Little Memories 🫂</h2>
 
-    <div class="memory">😂 Endless laughter</div>
-    <div class="memory">🤝 Crazy conversations</div>
-    <div class="memory">💖 Beautiful memories</div>
-    <div class="memory">✨ Moments worth remembering</div>
+<style>
 
-    <button onclick="nextPage()">One More Surprise 🎁</button>
-  </div>
+#page2{
+  background:
+    radial-gradient(circle at top,#24145c 0%,#09051c 45%,#020107 100%);
+  position:relative;
+  overflow:hidden;
+}
+
+#page2::before{
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  background:rgba(255,80,170,.18);
+  filter:blur(80px);
+  top:5%;
+  left:10%;
+  border-radius:50%;
+}
+
+#page2::after{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  background:rgba(80,120,255,.15);
+  filter:blur(100px);
+  bottom:0;
+  right:0;
+  border-radius:50%;
+}
+
+.page2-card{
+  position:relative;
+  z-index:2;
+  width:min(90%,520px);
+  padding:35px 25px;
+  border-radius:25px;
+  text-align:center;
+
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.55),
+    0 0 40px rgba(255,100,190,.12);
+
+  animation:page2CardIn 1.8s ease;
+}
+
+.page2-stars{
+  color:#ffd6f0;
+  font-size:20px;
+  letter-spacing:4px;
+  margin-bottom:15px;
+  opacity:.8;
+}
+
+.page2-emoji{
+  font-size:45px;
+  margin-bottom:15px;
+  animation:page2Emoji 2s ease-in-out infinite alternate;
+}
+
+.page2-title{
+  font-size:32px;
+  margin:10px 0;
+  color:white;
+  text-shadow:0 0 20px rgba(255,160,220,.7);
+  animation:page2Title 1.8s ease;
+}
+
+.page2-subtitle{
+  font-size:18px;
+  color:#ffd8ee;
+  margin-bottom:25px;
+  animation:page2Fade 2.5s ease;
+}
+
+.page2-message{
+  text-align:left;
+  font-size:17px;
+  line-height:1.8;
+  color:#fff;
+  margin-top:20px;
+}
+
+.page2-message p{
+  margin:15px 0;
+  opacity:0;
+  animation:page2Text 1s ease forwards;
+}
+
+.page2-message p:nth-child(1){
+  animation-delay:.8s;
+}
+
+.page2-message p:nth-child(2){
+  animation-delay:1.5s;
+}
+
+.page2-message p:nth-child(3){
+  animation-delay:2.2s;
+}
+
+.page2-message p:nth-child(4){
+  animation-delay:2.9s;
+}
+
+.page2-message b{
+  color:#ffb6dc;
+  text-shadow:0 0 12px rgba(255,130,200,.7);
+}
+
+.page2-more{
+  margin-top:25px;
+  font-size:19px;
+  font-weight:bold;
+  color:#ffd1e9;
+  opacity:0;
+  animation:
+    page2More 1.2s ease 3.8s forwards,
+    page2Glow 2s ease-in-out 5s infinite alternate;
+}
+
+.page2-btn{
+  margin-top:25px;
+  padding:14px 24px;
+  border:none;
+  border-radius:30px;
+
+  background:linear-gradient(135deg,#ff4e9b,#8d4cff);
+  color:white;
+
+  font-size:16px;
+  font-weight:bold;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 8px 25px rgba(255,60,160,.35);
+
+  transition:.3s;
+}
+
+.page2-btn:hover{
+  transform:scale(1.07);
+  box-shadow:
+    0 0 35px rgba(255,120,200,.7);
+}
+
+.page2-final{
+  display:none;
+  margin-top:25px;
+  padding:20px;
+  border-radius:18px;
+
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.15);
+
+  animation:page2Final 1.5s ease;
+}
+
+.page2-final.show{
+  display:block;
+}
+
+.page2-heart{
+  font-size:35px;
+  animation:page2Heart 1s ease-in-out infinite alternate;
+}
+
+.page2-final h3{
+  color:#ffcae5;
+  font-size:22px;
+}
+
+.page2-final p{
+  font-size:16px;
+  line-height:1.7;
+}
+
+@keyframes page2CardIn{
+  from{
+    opacity:0;
+    transform:scale(.75) translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
+}
+
+@keyframes page2Title{
+  from{
+    opacity:0;
+    transform:translateY(25px);
+    letter-spacing:10px;
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+    letter-spacing:normal;
+  }
+}
+
+@keyframes page2Fade{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+@keyframes page2Text{
+  from{
+    opacity:0;
+    transform:translateX(-20px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+@keyframes page2More{
+  from{
+    opacity:0;
+    transform:scale(.7);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+@keyframes page2Glow{
+  from{
+    text-shadow:0 0 5px #ff9dca;
+  }
+  to{
+    text-shadow:
+      0 0 15px #ff9dca,
+      0 0 30px #fff;
+  }
+}
+
+@keyframes page2Emoji{
+  from{
+    transform:scale(1);
+  }
+  to{
+    transform:scale(1.12);
+  }
+}
+
+@keyframes page2Final{
+  from{
+    opacity:0;
+    transform:translateY(30px) scale(.8);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+@keyframes page2Heart{
+  from{
+    transform:scale(1);
+  }
+  to{
+    transform:scale(1.2);
+  }
+}
+
+</style>
+
+
+<script>
+
+function page2Continue(){
+
+  document.querySelector(".page2-btn").style.display="none";
+
+  document.getElementById("page2-final").classList.add("show");
+
+}
+
+</script>
 </section>
 
 <!-- PAGE 4 -->
