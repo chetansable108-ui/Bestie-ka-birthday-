@@ -166,6 +166,22 @@ input{
 </head>
 
 <body>
+  <audio id="birthdaySong" loop controls>
+  <source src="song.mp3" type="audio/mpeg">
+  Your browser does not support audio.
+</audio>
+
+<script>
+function playBirthdaySong(){
+
+  const song = document.getElementById("birthdaySong");
+
+  song.play().catch(function(error){
+    console.log("Song play failed:", error);
+  });
+
+}
+</script>
 <div id="lockScreen" style="
 position:fixed;
 inset:0;
