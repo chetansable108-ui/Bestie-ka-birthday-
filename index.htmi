@@ -387,7 +387,8 @@ function createHeart(){
 
   document.body.appendChild(heart);
 
-  setTimeout(()=>{
+  
+setTimeout(()=>{
     heart.remove();
   },8000);
 }
