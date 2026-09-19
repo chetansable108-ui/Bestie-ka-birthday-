@@ -3,437 +3,399 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Shivani 🎂💖</title>
+<title>Shivani's Birthday 💖</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: "Poppins", Arial, sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-    min-height:100vh;
-    background:linear-gradient(135deg,#ffb6d9,#c9a7ff,#ffd6ec);
-    background-size:400% 400%;
-    animation:bg 10s ease infinite;
-    color:white;
-    overflow-x:hidden;
-}
-
-@keyframes bg{
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+  font-family:Arial,sans-serif;
+  min-height:100vh;
+  overflow:hidden;
+  color:white;
+  background:linear-gradient(135deg,#ff4e8a,#7b2ff7,#00c6ff);
 }
 
 .screen{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:25px;
+  display:none;
+  min-height:100vh;
+  width:100%;
+  padding:25px;
+  text-align:center;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  animation:fade .7s ease;
+}
+
+.screen.active{
+  display:flex;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:scale(.95)}
+  to{opacity:1;transform:scale(1)}
 }
 
 .card{
-    width:100%;
-    max-width:650px;
-    padding:40px 25px;
-    text-align:center;
-    background:rgba(255,255,255,.18);
-    border:1px solid rgba(255,255,255,.35);
-    border-radius:30px;
-    backdrop-filter:blur(15px);
-    box-shadow:0 20px 60px rgba(80,20,100,.25);
-}
-
-.hidden{
-    display:none !important;
-}
-
-.emoji{
-    font-size:65px;
-    animation:bounce 2s infinite;
-}
-
-@keyframes bounce{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-12px)}
+  width:min(92%,500px);
+  padding:30px 22px;
+  border-radius:30px;
+  background:rgba(255,255,255,.16);
+  backdrop-filter:blur(12px);
+  box-shadow:0 15px 50px rgba(0,0,0,.25);
+  border:1px solid rgba(255,255,255,.3);
 }
 
 h1{
-    font-size:clamp(35px,8vw,65px);
-    margin:15px 0;
-    text-shadow:0 5px 20px rgba(100,0,80,.3);
+  font-size:clamp(34px,9vw,60px);
+  margin-bottom:15px;
 }
 
 h2{
-    font-size:28px;
-    margin-bottom:15px;
+  font-size:clamp(27px,7vw,45px);
+  margin-bottom:18px;
 }
 
 p{
-    font-size:17px;
-    line-height:1.7;
+  font-size:18px;
+  line-height:1.7;
+  margin:12px 0;
+}
+
+.name{
+  color:#fff;
+  text-shadow:0 0 15px #ffb6d5;
 }
 
 button{
-    border:none;
-    padding:14px 28px;
-    margin-top:25px;
-    border-radius:50px;
-    background:white;
-    color:#d94691;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 8px 25px rgba(0,0,0,.18);
-    transition:.25s;
+  margin-top:20px;
+  padding:15px 28px;
+  border:none;
+  border-radius:50px;
+  background:white;
+  color:#e52e78;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
+  transition:.2s;
 }
 
-button:hover{
-    transform:scale(1.06);
+button:active{
+  transform:scale(.94);
 }
 
-.message{
-    margin-top:20px;
-    padding:20px;
-    border-radius:20px;
-    background:rgba(255,255,255,.18);
+.emoji{
+  font-size:65px;
+  margin-bottom:15px;
+  animation:bounce 1.5s infinite;
 }
 
-.puzzle-box{
-    margin-top:25px;
-    padding:25px;
-    border-radius:25px;
-    background:rgba(255,255,255,.2);
+@keyframes bounce{
+  50%{transform:translateY(-12px)}
+}
+
+.memory{
+  margin:15px 0;
+  padding:15px;
+  border-radius:20px;
+  background:rgba(255,255,255,.14);
+  font-size:20px;
 }
 
 input{
-    width:100%;
-    max-width:300px;
-    padding:14px 18px;
-    border:none;
-    outline:none;
-    border-radius:30px;
-    margin-top:18px;
-    text-align:center;
-    font-size:17px;
+  width:85%;
+  padding:15px;
+  border:none;
+  border-radius:30px;
+  text-align:center;
+  font-size:18px;
+  outline:none;
+  margin-top:12px;
 }
 
-#result{
-    margin-top:15px;
-    font-weight:bold;
-}
-
-.final{
-    font-size:20px;
-    line-height:1.8;
+.result{
+  margin-top:15px;
+  min-height:28px;
+  font-weight:bold;
 }
 
 .heart{
-    position:fixed;
-    bottom:-30px;
-    font-size:25px;
-    animation:float 6s linear infinite;
-    pointer-events:none;
+  position:fixed;
+  bottom:-30px;
+  font-size:25px;
+  animation:float 6s linear infinite;
+  pointer-events:none;
 }
 
 @keyframes float{
-    0%{
-        transform:translateY(0) rotate(0);
-        opacity:1;
-    }
-    100%{
-        transform:translateY(-110vh) rotate(360deg);
-        opacity:0;
-    }
+  0%{transform:translateY(0) rotate(0);opacity:0}
+  15%{opacity:1}
+  100%{transform:translateY(-110vh) rotate(360deg);opacity:0}
 }
 
 .confetti{
-    position:fixed;
-    top:-20px;
-    font-size:20px;
-    animation:fall 4s linear forwards;
-    pointer-events:none;
+  position:fixed;
+  width:10px;
+  height:18px;
+  top:-20px;
+  animation:fall 4s linear forwards;
+  pointer-events:none;
 }
 
 @keyframes fall{
-    to{
-        transform:translateY(110vh) rotate(720deg);
-    }
+  to{
+    transform:translateY(110vh) rotate(720deg);
+  }
 }
 
 .small{
-    margin-top:15px;
-    opacity:.85;
-    font-size:14px;
+  font-size:15px;
+  opacity:.9;
 }
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
-<section id="intro" class="screen">
-    <div class="card">
-        <div class="emoji">🎁</div>
-
-        <h1>Hey Shivani! 💖</h1>
-
-        <p>
-            Someone has prepared a little surprise for you...
-            <br>
-            But first, you have to unlock it. 👀✨
-        </p>
-
-        <button onclick="start()">Open Your Surprise 💌</button>
-
-        <div class="small">
-            Made specially for Shivani Lokhande 🌸
-        </div>
-    </div>
+<!-- PAGE 1 -->
+<section class="screen active" id="page1">
+  <div class="card">
+    <div class="emoji">💖</div>
+    <h1>Hey <span class="name">Shivani!</span></h1>
+    <p>I have a little surprise waiting for you... 👀✨</p>
+    <p>But you have to unlock it step by step. 😌</p>
+    <button onclick="nextPage()">Open Your Surprise 💌</button>
+  </div>
 </section>
 
-
-<!-- BIRTHDAY -->
-<section id="birthday" class="screen hidden">
-    <div class="card">
-
-        <div class="emoji">🎂</div>
-
-        <h1>Happy Birthday!</h1>
-
-        <h2>Shivani Lokhande 💖</h2>
-
-        <div class="message">
-            <p>
-                Wishing you a day full of happiness,
-                beautiful moments, endless smiles
-                and lots of reasons to celebrate. 🌸✨
-            </p>
-
-            <p style="margin-top:15px;">
-                May this new chapter of your life
-                bring you everything you've been wishing for. 💫
-            </p>
-        </div>
-
-        <button onclick="showPuzzle()">
-            Continue to the Puzzle 🧩
-        </button>
-
-    </div>
+<!-- PAGE 2 -->
+<section class="screen" id="page2">
+  <div class="card">
+    <div class="emoji">🌸</div>
+    <h2>For You, Shivani 💕</h2>
+    <p>
+      Some people come into our life and slowly become
+      a beautiful part of our memories.
+    </p>
+    <p>
+      You are one of those special people. 🫂💖
+    </p>
+    <button onclick="nextPage()">Continue ✨</button>
+  </div>
 </section>
 
+<!-- PAGE 3 -->
+<section class="screen" id="page3">
+  <div class="card">
+    <div class="emoji">📸</div>
+    <h2>Our Little Memories 🫂</h2>
 
-<!-- PUZZLE -->
-<section id="puzzle" class="screen hidden">
-    <div class="card">
+    <div class="memory">😂 Endless laughter</div>
+    <div class="memory">🤝 Crazy conversations</div>
+    <div class="memory">💖 Beautiful memories</div>
+    <div class="memory">✨ Moments worth remembering</div>
 
-        <div class="emoji">🧩</div>
-
-        <h2>Birthday Puzzle</h2>
-
-        <p>
-            Shivani, your next surprise is locked! 🔐
-        </p>
-
-        <div class="puzzle-box">
-
-            <p>
-                🎂 Her birthday month is...
-            </p>
-
-            <h2 style="margin-top:15px;">
-                Which month? 🤔
-            </h2>
-
-            <input
-                id="answer"
-                type="text"
-                placeholder="Type the month..."
-                autocomplete="off"
-            >
-
-            <br>
-
-            <button onclick="checkAnswer()">
-                Unlock 🔓
-            </button>
-
-            <div id="result"></div>
-
-        </div>
-
-    </div>
+    <button onclick="nextPage()">One More Surprise 🎁</button>
+  </div>
 </section>
 
+<!-- PAGE 4 -->
+<section class="screen" id="page4">
+  <div class="card">
+    <div class="emoji">🎂</div>
+    <h1>Happy Birthday!</h1>
+    <h2 class="name">Shivani Lokhande 💖</h2>
 
-<!-- FINAL -->
-<section id="final" class="screen hidden">
-    <div class="card">
+    <p>
+      May your smile always stay this beautiful,
+      your heart stay happy,
+      and your life be filled with countless
+      beautiful moments. ✨
+    </p>
 
-        <div class="emoji">🎉</div>
-
-        <h1>Surprise! 💖</h1>
-
-        <h2>Shivani 🌸</h2>
-
-        <div class="message final">
-
-            <p>
-                You solved it! 🥳
-            </p>
-
-            <p style="margin-top:15px;">
-                Today is all about celebrating YOU. 💕
-            </p>
-
-            <p style="margin-top:15px;">
-                Keep smiling, keep shining,
-                and keep making beautiful memories.
-                ✨
-            </p>
-
-            <p style="margin-top:20px;">
-                Once again...
-            </p>
-
-            <h2 style="margin-top:15px;">
-                🎂 HAPPY BIRTHDAY SHIVANI! 🎂
-            </h2>
-
-            <p style="margin-top:15px;">
-                💖🫂🌸✨🎁
-            </p>
-
-        </div>
-
-        <button onclick="celebrate()">
-            Celebrate! 🎊
-        </button>
-
-    </div>
+    <button onclick="nextPage()">Wait... There's More 👀</button>
+  </div>
 </section>
 
+<!-- PAGE 5 -->
+<section class="screen" id="page5">
+  <div class="card">
+    <div class="emoji">🧩</div>
+    <h2>Birthday Puzzle 🔐</h2>
+
+    <p>
+      Okay Shivani... let's see how well you know
+      your own birthday! 😜
+    </p>
+
+    <p><b>Your birthday month is...?</b></p>
+
+    <input id="answer" type="text" placeholder="Type the month...">
+
+    <button onclick="checkAnswer()">Unlock 🔓</button>
+
+    <div class="result" id="result"></div>
+  </div>
+</section>
+
+<!-- PAGE 6 -->
+<section class="screen" id="page6">
+  <div class="card">
+    <div class="emoji">👑</div>
+    <h2>Bestie Alert! 💖</h2>
+
+    <p>
+      Shivani, never forget how special you are.
+    </p>
+
+    <p>
+      Life will change, people will come and go,
+      but the memories we create will always have
+      their own little place. 🫂
+    </p>
+
+    <p>
+      Keep smiling. Keep shining. ✨
+    </p>
+
+    <button onclick="nextPage()">Final Surprise 🎁</button>
+  </div>
+</section>
+
+<!-- PAGE 7 -->
+<section class="screen" id="page7">
+  <div class="card">
+    <div class="emoji">🎉</div>
+
+    <h1>Happy Birthday</h1>
+
+    <h2 class="name">Shivani! 👑💖</h2>
+
+    <p>
+      May this new year of your life bring
+      happiness, success, love and lots of
+      unforgettable moments. ✨
+    </p>
+
+    <p>
+      Stay blessed and keep that beautiful smile forever. 🫂💗
+    </p>
+
+    <h2>🎂🎈🎁💖✨</h2>
+
+    <p class="small">
+      Made with lots of love just for you 💕
+    </p>
+  </div>
+</section>
 
 <script>
 
-function start(){
-    document.getElementById("intro").classList.add("hidden");
-    document.getElementById("birthday").classList.remove("hidden");
-    createHearts();
-}
+let currentPage = 1;
 
-function showPuzzle(){
-    document.getElementById("birthday").classList.add("hidden");
-    document.getElementById("puzzle").classList.remove("hidden");
+function nextPage(){
+
+  document.getElementById("page"+currentPage)
+    .classList.remove("active");
+
+  currentPage++;
+
+  if(currentPage > 7){
+    currentPage = 7;
+  }
+
+  document.getElementById("page"+currentPage)
+    .classList.add("active");
+
+  if(currentPage === 7){
+    startConfetti();
+  }
 }
 
 function checkAnswer(){
 
-    const answer =
-        document.getElementById("answer")
-        .value
-        .trim()
-        .toLowerCase();
+  let answer =
+    document.getElementById("answer").value
+    .trim()
+    .toLowerCase();
 
-    const result =
-        document.getElementById("result");
+  let result =
+    document.getElementById("result");
 
-    if(answer === "october"){
+  if(answer === "october"){
 
-        result.innerHTML =
-            "🎉 Correct! Surprise unlocked! 💖";
+    result.innerHTML =
+      "🎉 Correct! You unlocked the next surprise! 💖";
 
-        setTimeout(function(){
+    setTimeout(function(){
+      nextPage();
+    },1200);
 
-            document
-            .getElementById("puzzle")
-            .classList.add("hidden");
+  }else{
 
-            document
-            .getElementById("final")
-            .classList.remove("hidden");
+    result.innerHTML =
+      "😜 Nope! Try again... Hint: It's in the last part of the year 🎂";
 
-            celebrate();
-
-        },1000);
-
-    }else{
-
-        result.innerHTML =
-            "❌ Not quite... Try again! 😜";
-
-    }
+  }
 }
 
-function createHearts(){
+function startConfetti(){
 
-    setInterval(function(){
+  for(let i=0;i<100;i++){
 
-        const heart =
-            document.createElement("div");
+    let piece = document.createElement("div");
 
-        heart.className="heart";
+    piece.className = "confetti";
 
-        const hearts=["💖","💕","💗","💓","🌸","✨"];
+    piece.style.left =
+      Math.random()*100 + "vw";
 
-        heart.innerHTML =
-            hearts[Math.floor(Math.random()*hearts.length)];
+    piece.style.animationDelay =
+      Math.random()*2 + "s";
 
-        heart.style.left =
-            Math.random()*100+"vw";
+    piece.style.background =
+      "hsl(" + Math.random()*360 + ",90%,60%)";
 
-        heart.style.animationDuration =
-            (4+Math.random()*4)+"s";
+    document.body.appendChild(piece);
 
-        document.body.appendChild(heart);
-
-        setTimeout(()=>{
-            heart.remove();
-        },8000);
-
-    },600);
+    setTimeout(()=>{
+      piece.remove();
+    },6000);
+  }
 }
 
-function celebrate(){
+function createHeart(){
 
-    const emojis=[
-        "🎉","🎊","💖","💕","✨",
-        "🌸","🎂","🥳","💗"
-    ];
+  let heart = document.createElement("div");
 
-    for(let i=0;i<80;i++){
+  heart.className = "heart";
 
-        const item =
-            document.createElement("div");
+  heart.innerHTML =
+    ["💖","💕","💗","💓","❤️","✨"][Math.floor(Math.random()*6)];
 
-        item.className="confetti";
+  heart.style.left =
+    Math.random()*100 + "vw";
 
-        item.innerHTML =
-            emojis[Math.floor(Math.random()*emojis.length)];
+  heart.style.animationDuration =
+    (4 + Math.random()*4) + "s";
 
-        item.style.left =
-            Math.random()*100+"vw";
+  document.body.appendChild(heart);
 
-        item.style.animationDuration =
-            (2+Math.random()*3)+"s";
-
-        item.style.fontSize =
-            (15+Math.random()*20)+"px";
-
-        document.body.appendChild(item);
-
-        setTimeout(()=>{
-            item.remove();
-        },5000);
-    }
+  setTimeout(()=>{
+    heart.remove();
+  },8000);
 }
+
+setInterval(createHeart,700);
 
 </script>
 
 </body>
 </html>
+        
