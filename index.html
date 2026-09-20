@@ -672,7 +672,15 @@ function page2Continue(){
   document.getElementById("page2-final").classList.add("show");
 
   }
+function goToPage4(){
 
+  document.getElementById("page2").classList.remove("active");
+
+  document.getElementById("page4").classList.add("active");
+
+  currentPage = 4;
+
+}
 </script>
   <button onclick="goToPage4()">Next →</button>
 </section>
